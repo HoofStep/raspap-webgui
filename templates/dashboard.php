@@ -103,7 +103,7 @@ $ifaceStatus = $wlan0up ? "up" : "down";
                     <?php if (!$wlan0up) : ?>
                     <input type="submit" class="btn btn-success" value="<?php echo _("Start").' '.RASPI_WIFI_CLIENT_INTERFACE ?>" name="ifup_wlan0" />
                     <?php else : ?>
-                      <?php if ($config['user_type'] == 'admin') : ?>
+                      <?php if ($_SERVER['PHP_AUTH_USER'] == 'admin') : ?>
                         <input type="submit" class="btn btn-warning" value="<?php echo _("Stop").' '.RASPI_WIFI_CLIENT_INTERFACE ?>"  name="ifdown_wlan0" />
                       <?php endif; ?>
                     <?php endif ?>
