@@ -1,4 +1,6 @@
+
 <?php
+include_once('includes/authenticate.php');
 $arrHostapdConf = parse_ini_file('/etc/raspap/hostapd.ini');
 if ($arrHostapdConf['WifiAPEnable'] == 1) {
     $client_iface = 'uap0';
@@ -101,7 +103,9 @@ $ifaceStatus = $wlan0up ? "up" : "down";
                     <?php if (!$wlan0up) : ?>
                     <input type="submit" class="btn btn-success" value="<?php echo _("Start").' '.RASPI_WIFI_CLIENT_INTERFACE ?>" name="ifup_wlan0" />
                     <?php else : ?>
-                    <input type="submit" class="btn btn-warning" value="<?php echo _("Stop").' '.RASPI_WIFI_CLIENT_INTERFACE ?>"  name="ifdown_wlan0" />
+                      <?php if ($config['user_type'] == 'admin') : ?>
+                        <input type="submit" class="btn btn-warning" value="<?php echo _("Stop").' '.RASPI_WIFI_CLIENT_INTERFACE ?>"  name="ifdown_wlan0" />
+                      <?php endif; ?>
                     <?php endif ?>
                 <?php endif ?>
               <a href="?page=<?php echo $_GET['page'] ?>" class="btn btn-outline btn-primary"><i class="fas fa-sync-alt"></i> <?php echo _("Refresh") ?></a>
