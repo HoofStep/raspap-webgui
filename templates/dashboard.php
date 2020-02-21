@@ -115,6 +115,6 @@ $ifaceStatus = $wlan0up ? "up" : "down";
 
       </div><!-- /.card-body -->
       <div class="card-footer"><?php echo _("Information provided by ip and iw and from system"); ?></div>
-    </div><!-- /.card -->
+    </div><!-- /.card --> 
   </div><!-- /.col-lg-12 -->
 </div><!-- /.row -->
